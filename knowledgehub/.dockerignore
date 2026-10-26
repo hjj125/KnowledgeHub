@@ -1,0 +1,22 @@
+# Git
+.git
+.gitignore
+
+# Python
+backend/.venv
+**/__pycache__
+*.pyc
+.pytest_cache
+
+# Node
+frontend/node_modules
+frontend/dist
+
+# 实验产物（不入镜像）
+benchmarks/results
+tmp
+
+# 环境与文档（密钥绝不入镜像层）
+.env
+*.md
+docs

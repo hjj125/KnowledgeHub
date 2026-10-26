@@ -1,0 +1,98 @@
+{
+  "timestamp": "2026-10-25T06:21:04.225688+00:00",
+  "purpose": "阶段0 Embedding API 探测（§9.8.3 维度定稿第 1 步）",
+  "base_url": "https://api.siliconflow.cn/v1",
+  "model": "Qwen/Qwen3-VL-Embedding-8B",
+  "python": "3.13.1",
+  "native_dim": 4096,
+  "dimensions_param_effective": true,
+  "results": [
+    {
+      "test": "A_text_batch",
+      "status": "ok",
+      "latency_ms": 6554,
+      "http_status": 200,
+      "ok": true,
+      "n_vectors": 2,
+      "dims": [
+        4096
+      ],
+      "dim_consistent": true,
+      "sample_vector_head": [
+        0.014114,
+        0.00412,
+        -0.001884,
+        -0.001857
+      ],
+      "sample_vector_norm": 1.0,
+      "usage": {
+        "prompt_tokens": 44,
+        "completion_tokens": 0,
+        "total_tokens": 44,
+        "image_tokens": 0
+      },
+      "model": "Qwen/Qwen3-VL-Embedding-8B"
+    },
+    {
+      "test": "B_dimensions_1024",
+      "status": "ok",
+      "latency_ms": 1115,
+      "http_status": 200,
+      "ok": true,
+      "n_vectors": 1,
+      "dims": [
+        1024
+      ],
+      "dim_consistent": true,
+      "sample_vector_head": [
+        0.066188,
+        0.025415,
+        0.009233,
+        -0.002823
+      ],
+      "sample_vector_norm": 1.0,
+      "usage": {
+        "prompt_tokens": 20,
+        "completion_tokens": 0,
+        "total_tokens": 20,
+        "image_tokens": 0
+      },
+      "model": "Qwen/Qwen3-VL-Embedding-8B"
+    },
+    {
+      "test": "B_dimensions_2048",
+      "status": "ok",
+      "latency_ms": 1359,
+      "http_status": 200,
+      "ok": true,
+      "n_vectors": 1,
+      "dims": [
+        2048
+      ],
+      "dim_consistent": true,
+      "sample_vector_head": [
+        0.047228,
+        0.018135,
+        0.006588,
+        -0.002014
+      ],
+      "sample_vector_norm": 1.0,
+      "usage": {
+        "prompt_tokens": 20,
+        "completion_tokens": 0,
+        "total_tokens": 20,
+        "image_tokens": 0
+      },
+      "model": "Qwen/Qwen3-VL-Embedding-8B"
+    },
+    {
+      "test": "C_vl_image",
+      "status": "error",
+      "latency_ms": 1029,
+      "http_status": 400,
+      "ok": false,
+      "error": "HTTP 400: The parameter is invalid. Please check again.（VL schema 可能需按官方 EmbeddingsVLRequest 校准）",
+      "usage": null
+    }
+  ]
+}

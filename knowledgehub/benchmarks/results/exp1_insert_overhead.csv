@@ -1,0 +1,13 @@
+scale,index_config,docs,insert_1000_ms
+10000,no_index,1000,50.61
+10000,single_field,1000,59.52
+10000,composite_app,1000,65.27
+10000,composite_bad_order,1000,43.33
+50000,no_index,1000,82.41
+50000,single_field,1000,69.53
+50000,composite_app,1000,99.59
+50000,composite_bad_order,1000,124.87
+100000,no_index,1000,117.58
+100000,single_field,1000,113.84
+100000,composite_app,1000,88.62
+100000,composite_bad_order,1000,94.21

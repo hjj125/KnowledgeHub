@@ -1,0 +1,15 @@
+scenario,metric,value,unit,note
+1_normal_sync,e2e_sync_p50,1132.88,ms,提交→向量侧完成
+1_normal_sync,e2e_sync_p95,1382.07,ms,
+1_normal_sync,success_rate,100.0,%,
+2_publisher_down,pending_events_after_3s,1,条,事件滞留于 Outbox
+2_publisher_down,recovery_time,4.4,s,恢复后到向量侧完成
+3_worker_restart,vector_recovery,3.54,s,恢复完成
+3_worker_restart,graph_recovery,0.04,s,恢复完成
+4_duplicate_delivery,vector_rows,1,条,应为 1（内容单 chunk）
+4_duplicate_delivery,job_records,1,条,应为 1（幂等 upsert）
+4_duplicate_delivery,duplicate_free,1.0,bool,
+5_rapid_updates,settle_time,0.8,s,6 次连续修改收敛到最终版
+5_rapid_updates,final_consistent,1.0,bool,
+6_soft_delete_search,vectors_removed,1.0,bool,0.6s
+6_soft_delete_search,stale_hit_after_delete,0.0,bool,1 = 有陈旧命中（坏）；0 = 无（好）

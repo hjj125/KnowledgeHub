@@ -1,0 +1,16 @@
+{
+  "experiment": "exp1",
+  "timestamp_utc": "2026-10-25T09:23:42.638642+00:00",
+  "host": "黄俊杰",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "python": "3.13.1",
+  "seed_policy": "随机种子固定于数据生成脚本参数，见各实验脚本头部",
+  "mongo_collection": "bench_notes",
+  "scales": [
+    10000,
+    50000,
+    100000
+  ],
+  "rounds": 30
+}

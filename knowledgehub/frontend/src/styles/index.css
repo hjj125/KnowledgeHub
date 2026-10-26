@@ -1,0 +1,236 @@
+/* ============================================================
+   知序 KnowledgeHub · 设计系统
+   设计令牌（亮/暗）+ Element Plus 覆盖 + 通用工具类
+   ============================================================ */
+
+:root {
+  /* 品牌与渐变 */
+  --kh-brand: #526bea;
+  --kh-brand-2: #7c5cea;
+  --kh-brand-3: #4a9ff5;
+  --kh-gradient: linear-gradient(135deg, #526bea 0%, #7c5cea 55%, #4a9ff5 100%);
+
+  /* 中性色（亮） */
+  --kh-bg: #f4f6fb;
+  --kh-bg-soft: #eceff7;
+  --kh-surface: #ffffff;
+  --kh-surface-2: #f8f9fd;
+  --kh-border: #e4e8f2;
+  --kh-text: #1b2a44;
+  --kh-text-2: #5a6a85;
+  --kh-text-3: #94a1b8;
+
+  /* 语义 */
+  --kh-success: #22a06b;
+  --kh-warning: #e8930c;
+  --kh-danger: #e5484d;
+
+  /* 形状与阴影 */
+  --kh-radius: 14px;
+  --kh-radius-sm: 10px;
+  --kh-shadow: 0 1px 2px rgba(27, 42, 68, 0.04), 0 8px 24px rgba(27, 42, 68, 0.06);
+  --kh-shadow-lg: 0 4px 12px rgba(27, 42, 68, 0.08), 0 16px 48px rgba(27, 42, 68, 0.1);
+  --kh-sidebar-w: 224px;
+
+  color-scheme: light;
+}
+
+html.dark {
+  --kh-bg: #10141f;
+  --kh-bg-soft: #0c101a;
+  --kh-surface: #181e2d;
+  --kh-surface-2: #1e2536;
+  --kh-border: #2a3247;
+  --kh-text: #e3e8f3;
+  --kh-text-2: #a3aec4;
+  --kh-text-3: #6b7690;
+  --kh-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --kh-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.4), 0 16px 48px rgba(0, 0, 0, 0.5);
+
+  color-scheme: dark;
+}
+
+/* ---------- 基础 ---------- */
+
+body {
+  margin: 0;
+  background: var(--kh-bg);
+  color: var(--kh-text);
+  font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+/* 全局滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--kh-border);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--kh-text-3);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------- Element Plus 覆盖 ---------- */
+
+.el-card {
+  --el-card-border-radius: var(--kh-radius);
+  --el-card-border-color: var(--kh-border);
+  --el-card-bg-color: var(--kh-surface);
+  box-shadow: var(--kh-shadow) !important;
+  border: 1px solid var(--kh-border);
+}
+
+.el-button {
+  --el-button-border-radius: 8px;
+}
+
+.el-dialog {
+  --el-dialog-border-radius: var(--kh-radius);
+  --el-dialog-bg-color: var(--kh-surface);
+}
+
+.el-table {
+  --el-table-border-color: var(--kh-border);
+  --el-table-header-bg-color: var(--kh-surface-2);
+  --el-table-bg-color: var(--kh-surface);
+  --el-table-tr-bg-color: var(--kh-surface);
+  --el-table-row-hover-bg-color: var(--kh-bg-soft);
+}
+
+.el-input__wrapper,
+.el-textarea__inner {
+  background-color: var(--kh-surface);
+}
+
+.el-select-dropdown,
+.el-popper {
+  --el-bg-color-overlay: var(--kh-surface);
+}
+
+/* 页面标题与页头容器 */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4px 4px 24px;
+}
+
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 6px 0 18px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--kh-text);
+  letter-spacing: 0.2px;
+}
+
+.page-sub {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--kh-text-3);
+}
+
+/* 空状态 */
+.kh-empty {
+  text-align: center;
+  color: var(--kh-text-3);
+  padding: 48px 0;
+  font-size: 14px;
+}
+
+/* 淡入动画 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.18s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Markdown 渲染（笔记预览 / 问答回答） */
+.kh-md {
+  line-height: 1.75;
+  font-size: 14px;
+  word-break: break-word;
+}
+.kh-md h1,
+.kh-md h2,
+.kh-md h3 {
+  margin: 14px 0 8px;
+  color: var(--kh-text);
+}
+.kh-md p {
+  margin: 6px 0;
+}
+.kh-md ul,
+.kh-md ol {
+  padding-left: 22px;
+  margin: 6px 0;
+}
+.kh-md code {
+  background: var(--kh-bg-soft);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 13px;
+  font-family: Consolas, Monaco, monospace;
+}
+.kh-md pre {
+  background: var(--kh-bg-soft);
+  border-radius: 8px;
+  padding: 12px;
+  overflow-x: auto;
+}
+.kh-md pre code {
+  background: transparent;
+  padding: 0;
+}
+.kh-md blockquote {
+  margin: 8px 0;
+  padding: 4px 12px;
+  border-left: 3px solid var(--kh-brand);
+  background: var(--kh-bg-soft);
+  border-radius: 0 8px 8px 0;
+  color: var(--kh-text-2);
+}
+.kh-md a {
+  color: var(--kh-brand);
+}
+.kh-md table {
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+.kh-md th,
+.kh-md td {
+  border: 1px solid var(--kh-border);
+  padding: 4px 10px;
+}
+
+/* [[双链]] 徽标（Markdown 渲染内使用） */
+.kh-wikilink {
+  display: inline-block;
+  background: color-mix(in srgb, var(--kh-brand) 12%, transparent);
+  color: var(--kh-brand);
+  border-radius: 5px;
+  padding: 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: default;
+}

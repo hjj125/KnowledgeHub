@@ -1,0 +1,19 @@
+{
+  "experiment": "exp2",
+  "timestamp_utc": "2026-10-25T09:28:07.560550+00:00",
+  "host": "黄俊杰",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+  "python": "3.13.1",
+  "seed_policy": "随机种子固定于数据生成脚本参数，见各实验脚本头部",
+  "notes": 1000,
+  "concurrency": [
+    1,
+    4,
+    16,
+    64
+  ],
+  "requests_per_run": 2000,
+  "hot_fraction": 0.8,
+  "ttl_seconds": 300
+}
